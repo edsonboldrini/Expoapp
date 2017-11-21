@@ -9,7 +9,7 @@ package trabalhointegrado;
  *
  * @author 20151bsi0223
  */
-public class TrabalhoIntegrado {
+public class Main {
 
     /**
      * @param args the command line arguments
