@@ -15,6 +15,7 @@ import java.util.Date;
 @Entity
 @Table (name = "COMENTARIO")
 public class Comentario {
+    private Integer id;
     private String descricao;
     private Date data_cadastro;
     private int nota;
