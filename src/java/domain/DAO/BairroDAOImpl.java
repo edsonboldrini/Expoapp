@@ -12,5 +12,10 @@ import domain.models.Bairro;
  * @author edson
  */
 public class BairroDAOImpl extends GenericDAOImpl<Bairro> implements BairroDAO{
+
+    @Override
+    public Bairro getById(int id) {
+        return entityManager.find(Bairro.class, id);
+    }
     
 }

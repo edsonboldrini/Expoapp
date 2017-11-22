@@ -6,17 +6,14 @@
 package domain.DAO;
 
 import domain.models.Cliente;
-<<<<<<< HEAD
 import java.util.List;
-=======
->>>>>>> 801a02eee05704baa4b6d8a54d3da7a195542172
+import javax.persistence.Query;
 
 /**
  *
  * @author edson
  */
-<<<<<<< HEAD
-public class ClienteDAOImpl extends GenericDAOImpl implements ClienteDAO {
+public class ClienteDAOImpl extends GenericDAOImpl<Cliente> implements ClienteDAO {
 
     public ClienteDAOImpl() {
         super();
@@ -25,21 +22,30 @@ public class ClienteDAOImpl extends GenericDAOImpl implements ClienteDAO {
     public void removeByCpf(String cpf) {
         try {
             entityManager.getTransaction().begin();
-            Cliente cliente = getByCpf(cpf);
-            entityManager.remove(cliente);
-            entityManager.getTransaction().commit();
+            Query q = entityManager.createNativeQuery("DELETE FROM " + Cliente.class.getSimpleName()+ " WHERE cpf = '" + cpf + "'");
+            q.executeUpdate();
         } catch (Exception ex) {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
         }
-    }   
+    }
 
-    public Cliente deletar(final int id) {
+    @Override
+    public Cliente getById(final int id) {
         return entityManager.find(Cliente.class, id);
     }
 
     public Cliente getByCpf(final String cpf) {
-        return (Cliente) entityManager.createQuery("FROM " + Cliente.class.getName() + " where cpf = '" + cpf + "'").getSingleResult();
+        try{
+            return (Cliente) entityManager.createQuery("FROM " + Cliente.class.getName() + " where cpf = '" + cpf + "'").getSingleResult();
+        }
+        catch(Exception ex){
+             return null;   
+        }
+    }
+
+    public List<Cliente> findAll() {
+        return entityManager.createQuery("FROM " + Cliente.class.getName()).getResultList();
     }
 
 }

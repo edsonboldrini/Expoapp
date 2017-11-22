@@ -12,5 +12,10 @@ import domain.models.Estado;
  * @author edson
  */
 public class EstadoDAOImpl extends GenericDAOImpl<Estado> implements EstadoDAO{
+
+    @Override
+    public Estado getById(int id) {
+        return entityManager.find(Estado.class, id);
+    }
     
 }

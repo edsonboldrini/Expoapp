@@ -13,4 +13,9 @@ import domain.models.Peca;
  */
 public class PecaDAOImpl extends GenericDAOImpl<Peca> implements PecaDAO{
 
+    @Override
+    public Peca getById(int id) {
+        return entityManager.find(Peca.class, id);
+    }
+
 }

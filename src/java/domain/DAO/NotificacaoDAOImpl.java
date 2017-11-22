@@ -12,5 +12,10 @@ import domain.models.Notificacao;
  * @author edson
  */
 public class NotificacaoDAOImpl extends GenericDAOImpl<Notificacao> implements NotificacaoDAO{
+
+    @Override
+    public Notificacao getById(int id) {
+        return entityManager.find(Notificacao.class, id);
+    }
  
 }

@@ -13,4 +13,9 @@ import domain.models.Imagem;
  */
 public class ImagemDAOImpl extends GenericDAOImpl<Imagem> implements ImagemDAO{
 
+    @Override
+    public Imagem getById(int id) {
+        return entityManager.find(Imagem.class, id);
+    }
+
 }

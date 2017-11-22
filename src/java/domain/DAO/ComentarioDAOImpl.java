@@ -13,5 +13,10 @@ import domain.models.Comentario;
  */
 public class ComentarioDAOImpl extends GenericDAOImpl<Comentario> implements ComentarioDAO{
 
+    @Override
+    public Comentario getById(int id) {
+        return entityManager.find(Comentario.class, id);
+    }
+
     
 }

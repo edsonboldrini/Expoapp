@@ -13,4 +13,9 @@ import domain.models.Usuario;
  */
 public class UsuarioDAOImpl extends GenericDAOImpl<Usuario> implements UsuarioDAO{
 
+    @Override
+    public Usuario getById(int id) {
+        return entityManager.find(Usuario.class, id);
+    }
+
 }

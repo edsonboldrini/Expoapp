@@ -5,10 +5,17 @@
  */
 package domain.DAO;
 
+import domain.models.Resposta;
+
 /**
  *
  * @author edson
  */
-public class RespostaDAOImpl {
+public class RespostaDAOImpl extends GenericDAOImpl<Resposta>{
+
+    @Override
+    public Resposta getById(int id) {
+        return entityManager.find(Resposta.class, id);
+    }
     
 }

@@ -12,5 +12,6 @@ import domain.models.Cliente;
  * @author edson
  */
 public interface ClienteDAO extends GenericDAO<Cliente>{
+    public void removeByCpf(String cpf);
     
 }

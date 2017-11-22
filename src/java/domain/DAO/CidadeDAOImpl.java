@@ -14,5 +14,10 @@ import java.util.List;
  */
 
 public class CidadeDAOImpl extends GenericDAOImpl<Cidade> implements CidadeDAO{
+
+    @Override
+    public Cidade getById(int id) {
+        return entityManager.find(Cidade.class, id);
+    }
     
     }

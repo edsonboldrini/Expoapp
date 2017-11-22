@@ -23,7 +23,7 @@ public class Teste {
             ClienteDAOImpl controller = new ClienteDAOImpl();
             Date data = new Date();
             //Cliente cliente1 = new Cliente(data, 'M', "14166907786", 3, "yagozt", "2213", "yagozt.henrique@gmail.com", data, "Yago", "a", "a", "29166510");
-            controller.removeByCpf("14166907786");
+            controller.removeByCpf("14166907785");
             //System.out.println("Cliente removido");
             //Cliente cliente2 = new Cliente(data, 'M', "14166907785", 3, "yagozt", "2213", "yagozt.henrique@gmail.com", data, "Yago", "a", "a", "29166510");
             //Cliente cliente3 = new Cliente(data, 'M', "14166907787", 3, "yagozt", "2213", "yagozt.henrique@gmail.com", data, "Yago", "a", "a", "29166510");

@@ -13,5 +13,9 @@ import domain.models.Exposicao;
  */
 public class ExposicaoDAOImpl extends GenericDAOImpl<Exposicao> implements ExposicaoDAO{
 
+    @Override
+    public Exposicao getById(int id) {
+        return entityManager.find(Exposicao.class, id);
+    }
 
 }
