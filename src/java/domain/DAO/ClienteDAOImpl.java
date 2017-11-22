@@ -34,43 +34,12 @@ public class ClienteDAOImpl extends GenericDAOImpl implements ClienteDAO {
         }
     }   
 
-    public Cliente getById(final int id) {
+    public Cliente deletar(final int id) {
         return entityManager.find(Cliente.class, id);
     }
 
     public Cliente getByCpf(final String cpf) {
         return (Cliente) entityManager.createQuery("FROM " + Cliente.class.getName() + " where cpf = '" + cpf + "'").getSingleResult();
-=======
-public class ClienteDAOImpl extends GenericDAOImpl<Cliente> implements ClienteDAO{
-
-    @Override
-    public Cliente Listar(Class clazz, String pk) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void rollBack() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> 801a02eee05704baa4b6d8a54d3da7a195542172
-    }
-    
-    public List<Cliente> findAll() {
-        return entityManager.createQuery("FROM " + Cliente.class.getName()).getResultList();
-    }
-
-    @Override
-    public List listar(Class clazz) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object Listar(Class clazz, String pk) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void rollBack() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

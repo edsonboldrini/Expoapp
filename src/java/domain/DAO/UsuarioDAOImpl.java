@@ -13,14 +13,4 @@ import domain.models.Usuario;
  */
 public class UsuarioDAOImpl extends GenericDAOImpl<Usuario> implements UsuarioDAO{
 
-    @Override
-    public Usuario Listar(Class clazz, String pk) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void rollBack() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }
