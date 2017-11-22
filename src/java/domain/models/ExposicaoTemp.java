@@ -15,7 +15,7 @@ import java.util.Date;
  */
 @Entity
 @Table (name = "EXPOSICAO_TEMP")
-public class ExposicaoTemp extends Exposicao implements Serializable{
+public class ExposicaoTemp extends Exposicao{
     private Date dt_fim;
     private int fk_exposicao_id;
 }

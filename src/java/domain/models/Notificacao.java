@@ -15,6 +15,8 @@ import java.util.Date;
 @Entity
 @Table (name = "NOTIFICACAO")
 public class Notificacao {
+    @Id
+    private int id;
     private Date data;
     private String descricao;
     private int tipo;

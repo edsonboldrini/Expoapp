@@ -14,6 +14,8 @@ import javax.persistence.*;
 @Entity
 @Table (name = "CIDADE")
 public class Cidade {
+    @Id
+    private int id;
     private String nome;
     private int fk_estado_id;
 }

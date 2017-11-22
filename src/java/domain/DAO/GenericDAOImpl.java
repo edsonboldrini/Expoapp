@@ -5,7 +5,7 @@
  */
 package domain.DAO;
 
-import domain.util.HibernateUtil;
+import domain.util.Conexao;
 import javax.persistence.*;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -21,42 +21,48 @@ public abstract class GenericDAOImpl<T> implements GenericDAO<T>
 {
     protected static Session sessao;
     protected Transaction transacao;
+    private static GenericDAOImpl instance;
+    protected EntityManager entityManager;
     
+
+    public GenericDAOImpl(){
+        entityManager = Conexao.getEntityManager();
+    }
     public void inserir(T obj) throws Exception
     {
-        sessao = HibernateUtil.getSession();
-        transacao = sessao.beginTransaction();
-        sessao.save(obj);
-        sessao.flush();
-        transacao.commit();
-        sessao.close();
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.persist(obj);
+            entityManager.getTransaction().commit();
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }
     }
     
     public void alterar (T obj) throws Exception
     {
-        sessao = HibernateUtil.getSession();
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.merge(obj);
+            entityManager.getTransaction().commit();
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }
     }
-    
-    public List<T> listar(Class clazz) throws Exception
-    {
-        sessao = HibernateUtil.getSession();
-        transacao = sessao.beginTransaction();
-        List objts;
-        objts = null;
-        Criteria selectAll = sessao.createCriteria(clazz);
-        transacao.commit();
-        objts = selectAll.list();
-        sessao.close();
-        return objts;
-    }        
     
     public void deletar(T obj) throws Exception
     {
-        sessao = HibernateUtil.getSession();
-        transacao = sessao.beginTransaction();
-        sessao.delete(obj);
-        sessao.flush();
-        transacao.commit();
-        sessao.close();
+        try {
+                entityManager.getTransaction().begin();
+                entityManager.remove(obj);
+                entityManager.getTransaction().commit();
+       } catch (Exception ex) {
+                ex.printStackTrace();
+                entityManager.getTransaction().rollback();
+       }
     }
 }

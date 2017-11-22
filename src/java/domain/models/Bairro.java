@@ -6,6 +6,7 @@
 package domain.models;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -15,6 +16,8 @@ import javax.persistence.Table;
 @Entity
 @Table (name = "BAIRRO")
 public class Bairro {
+    @Id
+    private int id;
     private String nome;
     private int fk_cidade_id;
 }

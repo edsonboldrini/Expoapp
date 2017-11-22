@@ -13,5 +13,10 @@ import javax.persistence.*;
 @Entity
 @Table (name = "ESTADO")
 public class Estado {
+    @Id
+     private int id;
+    @Column
+    private String sigla;
+    @Column
     private String nome;
 }

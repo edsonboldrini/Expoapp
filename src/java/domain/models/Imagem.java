@@ -13,6 +13,8 @@ import javax.persistence.*;
 @Entity
 @Table (name = "IMAGEM")
 public class Imagem {
+    @Id
+    private int id;
     private String link_imagem;
     private int tipo;
     private int fk_empresa_id;
