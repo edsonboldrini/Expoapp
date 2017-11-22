@@ -19,8 +19,6 @@ import org.hibernate.Transaction;
  */
 public abstract class GenericDAOImpl<T> implements GenericDAO<T> 
 {
-    protected static Session sessao;
-    protected Transaction transacao;
     private static GenericDAOImpl instance;
     protected EntityManager entityManager;
     
@@ -52,17 +50,5 @@ public abstract class GenericDAOImpl<T> implements GenericDAO<T>
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
         }
-    }
-    
-    public void deletar(T obj) throws Exception
-    {
-        try {
-                entityManager.getTransaction().begin();
-                entityManager.remove(obj);
-                entityManager.getTransaction().commit();
-       } catch (Exception ex) {
-                ex.printStackTrace();
-                entityManager.getTransaction().rollback();
-       }
     }
 }
