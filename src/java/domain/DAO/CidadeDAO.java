@@ -5,10 +5,12 @@
  */
 package domain.DAO;
 
+import domain.models.Cidade;
+
 /**
  *
  * @author edson
  */
-public interface CidadeDAO {
+public interface CidadeDAO extends GenericDAO<Cidade>{
     
 }

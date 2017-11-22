@@ -5,10 +5,12 @@
  */
 package domain.DAO;
 
+import domain.models.Comentario;
+
 /**
  *
  * @author edson
  */
-public interface ComentarioDAO {
+public interface ComentarioDAO extends GenericDAO<Comentario>{
     
 }

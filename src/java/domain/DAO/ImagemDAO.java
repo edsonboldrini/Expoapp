@@ -5,10 +5,12 @@
  */
 package domain.DAO;
 
+import domain.models.Imagem;
+
 /**
  *
  * @author edson
  */
-public interface ImagemDAO {
+public interface ImagemDAO extends GenericDAO<Imagem>{
     
 }

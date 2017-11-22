@@ -5,10 +5,12 @@
  */
 package domain.DAO;
 
+import domain.models.ExposicaoTemp;
+
 /**
  *
  * @author edson
  */
-public interface ExposicaoTempDAO {
+public interface ExposicaoTempDAO extends GenericDAO<ExposicaoTemp>{
     
 }

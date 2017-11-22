@@ -5,10 +5,12 @@
  */
 package domain.DAO;
 
+import domain.models.Peca;
+
 /**
  *
  * @author edson
  */
-public interface PecaDAO {
+public interface PecaDAO extends GenericDAO<Peca>{
     
 }

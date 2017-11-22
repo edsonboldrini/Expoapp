@@ -5,10 +5,12 @@
  */
 package domain.DAO;
 
+import domain.models.Notificacao;
+
 /**
  *
  * @author edson
  */
-public interface NotificacaoDAO {
+public interface NotificacaoDAO extends GenericDAO<Notificacao>{
     
 }

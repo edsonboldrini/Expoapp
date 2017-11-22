@@ -5,10 +5,12 @@
  */
 package domain.DAO;
 
+import domain.models.Bairro;
+
 /**
  *
  * @author edson
  */
-public interface BairroDAO {
+public interface BairroDAO extends GenericDAO<Bairro>{
     
 }

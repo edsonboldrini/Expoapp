@@ -5,12 +5,17 @@
  */
 package domain.DAO;
 
+<<<<<<< HEAD
 import java.util.List;
+=======
+import domain.models.Cidade;
+>>>>>>> 801a02eee05704baa4b6d8a54d3da7a195542172
 
 /**
  *
  * @author edson
  */
+<<<<<<< HEAD
 public class CidadeDAOImpl extends GenericDAOImpl implements ClienteDAO{
     
     public CidadeDAOImpl(){
@@ -24,6 +29,12 @@ public class CidadeDAOImpl extends GenericDAOImpl implements ClienteDAO{
 
     @Override
     public Object Listar(Class clazz, String pk) throws Exception {
+=======
+public class CidadeDAOImpl extends GenericDAOImpl<Cidade> implements CidadeDAO{
+
+    @Override
+    public Cidade Listar(Class clazz, String pk) throws Exception {
+>>>>>>> 801a02eee05704baa4b6d8a54d3da7a195542172
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
