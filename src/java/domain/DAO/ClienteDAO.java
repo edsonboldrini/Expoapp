@@ -5,10 +5,12 @@
  */
 package domain.DAO;
 
+import domain.models.Cliente;
+
 /**
  *
  * @author edson
  */
-public interface ClienteDAO {
+public interface ClienteDAO extends GenericDAO<Cliente>{
     
 }

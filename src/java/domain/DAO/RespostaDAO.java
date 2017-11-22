@@ -5,10 +5,12 @@
  */
 package domain.DAO;
 
+import domain.models.Resposta;
+
 /**
  *
  * @author edson
  */
-public interface RespostaDAO {
+public interface RespostaDAO extends GenericDAO<Resposta>{
     
 }
