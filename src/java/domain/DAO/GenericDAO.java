@@ -16,4 +16,5 @@ public interface GenericDAO<T> {
     public void inserir( T obj) throws Exception;
     public void alterar( T obj) throws Exception;
     public T getById(final int id);
+    public List<T> listar(Class clazz) throws Exception;
 }

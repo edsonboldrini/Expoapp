@@ -51,4 +51,19 @@ public abstract class GenericDAOImpl<T> implements GenericDAO<T>
             entityManager.getTransaction().rollback();
         }
     }
+    
+    public List<T> listar(Class clazz){
+        List<T> objects = null;
+        try{
+            entityManager.getTransaction().begin();
+            Query query = entityManager.createQuery("from " + clazz.getName());
+            objects = query.getResultList();
+            entityManager.getTransaction().commit();
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }
+        return objects;
+    }
 }

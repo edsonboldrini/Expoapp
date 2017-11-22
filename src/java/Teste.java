@@ -30,7 +30,7 @@ public class Teste {
             //controller.inserir(cliente1);
             //controller.inserir(cliente3);
             System.out.println("Clientes Inseridos");
-            for(Cliente a:controller.findAll()){
+            for(Cliente a:controller.listar(Cliente.class)){
                 System.out.println("Cpf" + a.getCpf());
             }
             Conexao.close();

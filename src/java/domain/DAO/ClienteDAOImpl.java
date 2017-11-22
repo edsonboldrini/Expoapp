@@ -24,6 +24,7 @@ public class ClienteDAOImpl extends GenericDAOImpl<Cliente> implements ClienteDA
             entityManager.getTransaction().begin();
             Query q = entityManager.createNativeQuery("DELETE FROM " + Cliente.class.getSimpleName() + " WHERE cpf = '" + cpf + "'");
             q.executeUpdate();
+            entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
@@ -43,14 +44,10 @@ public class ClienteDAOImpl extends GenericDAOImpl<Cliente> implements ClienteDA
         }
     }
 
-    public List<Cliente> findAll() {
-        return entityManager.createQuery("FROM " + Cliente.class.getName()).getResultList();
-    }
-
     public void remove(Cliente cliente) {
         try {
             entityManager.getTransaction().begin();
-            cliente = entityManager.find(Cliente.class, cliente.getId());
+            //cliente = entityManager.find(Cliente.class, cliente.getId());
             entityManager.remove(cliente);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
