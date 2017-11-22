@@ -22,7 +22,7 @@ public class ClienteDAOImpl extends GenericDAOImpl<Cliente> implements ClienteDA
     public void removeByCpf(String cpf) {
         try {
             entityManager.getTransaction().begin();
-            Query q = entityManager.createNativeQuery("DELETE FROM " + Cliente.class.getSimpleName()+ " WHERE cpf = '" + cpf + "'");
+            Query q = entityManager.createNativeQuery("DELETE FROM " + Cliente.class.getSimpleName() + " WHERE cpf = '" + cpf + "'");
             q.executeUpdate();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -36,16 +36,27 @@ public class ClienteDAOImpl extends GenericDAOImpl<Cliente> implements ClienteDA
     }
 
     public Cliente getByCpf(final String cpf) {
-        try{
+        try {
             return (Cliente) entityManager.createQuery("FROM " + Cliente.class.getName() + " where cpf = '" + cpf + "'").getSingleResult();
-        }
-        catch(Exception ex){
-             return null;   
+        } catch (Exception ex) {
+            return null;
         }
     }
 
     public List<Cliente> findAll() {
         return entityManager.createQuery("FROM " + Cliente.class.getName()).getResultList();
+    }
+
+    public void remove(Cliente cliente) {
+        try {
+            entityManager.getTransaction().begin();
+            cliente = entityManager.find(Cliente.class, cliente.getId());
+            entityManager.remove(cliente);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }
     }
 
 }
