@@ -15,6 +15,8 @@ import java.util.Date;
 @Entity
 @Table (name = "USUARIO")
 public class Usuario {
+    @Id
+    private Integer id;
     private String login;
     private String senha;
     private String email;

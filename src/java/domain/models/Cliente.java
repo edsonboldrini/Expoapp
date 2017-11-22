@@ -13,8 +13,9 @@ import java.util.Date;
  * @author 20151bsi0223
  */
 @Entity
-@Table (name = "CLIENTE")
+@Table (name = "cliente")
 public class Cliente extends Usuario{
+    
     private Date data_nascimento;
     private char sexo;
     private String cpf;
