@@ -3,28 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Git/expoApp/src/java/domain/DAO/ClienteDAOImpl.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/DAO/ExposicaoTempDAOImpl.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/models/Cliente.java</file>
-            <file>file:/E:/Git/expoApp/src/java/Teste.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/DAO/GenericDAO.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/util/Conexao.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/DAO/ImagemDAOImpl.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/DAO/PecaDAOImpl.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/DAO/BairroDAOImpl.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/controller/ClienteController.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/DAO/NotificacaoDAOImpl.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/DAO/ComentarioDAOImpl.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/DAO/GenericDAOImpl.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/DAO/EstadoDAOImpl.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/DAO/ExposicaoDAOImpl.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/DAO/RespostaDAO.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/DAO/ClienteDAO.java</file>
             <file>file:/E:/Git/expoApp/src/java/domain/DAO/CidadeDAOImpl.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/DAO/UsuarioDAOImpl.java</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/DAO/EstadoDAO.java</file>
+            <file>file:/E:/Git/expoApp/src/java/domain/models/Cliente.java</file>
+            <file>file:/E:/Git/expoApp/src/java/domain/DAO/ClienteDAOImpl.java</file>
+            <file>file:/E:/Git/expoApp/src/java/domain/models/Empresa.java</file>
+            <file>file:/E:/Git/expoApp/src/java/Teste.java</file>
+            <file>file:/E:/Git/expoApp/src/java/domain/DAO/EmpresaDAOImpl.java</file>
+            <file>file:/E:/Git/expoApp/src/java/domain/models/Bairro.java</file>
             <file>file:/E:/Git/expoApp/src/java/META-INF/persistence.xml</file>
-            <file>file:/E:/Git/expoApp/src/java/domain/DAO/RespostaDAOImpl.java</file>
+            <file>file:/E:/Git/expoApp/src/java/domain/models/Usuario.java</file>
+            <file>file:/E:/Git/expoApp/src/java/domain/DAO/GenericDAOImpl.java</file>
         </group>
     </open-files>
 </project-private>

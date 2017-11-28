@@ -5,6 +5,7 @@
  */
 package domain.models;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 /**
@@ -13,9 +14,11 @@ import javax.persistence.*;
  */
 @Entity
 @Table (name = "CIDADE")
-public class Cidade {
+public class Cidade implements Serializable {
     @Id
     private int id;
     private String nome;
-    private int fk_estado_id;
+    @ManyToOne
+    @JoinColumn(name = "estadoId")
+    private Estado estado;
 }

@@ -5,10 +5,17 @@
  */
 package domain.DAO;
 
+import domain.models.Empresa;
+
 /**
  *
  * @author edson
  */
-public class EmpresaDAOImpl {
+public class EmpresaDAOImpl extends GenericDAOImpl<Empresa> implements EmpresaDAO{
+
+    @Override
+    public Empresa getById(int id) {
+        return entityManager.find(Empresa.class, id);
+    }
     
 }

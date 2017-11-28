@@ -5,6 +5,7 @@
  */
 package domain.models;
 
+import java.io.Serializable;
 import javax.persistence.*;
 /**
  *
@@ -12,7 +13,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table (name = "ESTADO")
-public class Estado {
+public class Estado implements Serializable {
     @Id
      private int id;
     @Column

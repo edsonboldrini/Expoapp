@@ -26,6 +26,7 @@ public abstract class GenericDAOImpl<T> implements GenericDAO<T>
     public GenericDAOImpl(){
         entityManager = Conexao.getEntityManager();
     }
+    @Override
     public void inserir(T obj) throws Exception
     {
         try{
@@ -39,6 +40,7 @@ public abstract class GenericDAOImpl<T> implements GenericDAO<T>
         }
     }
     
+    @Override
     public void alterar (T obj) throws Exception
     {
         try{
@@ -52,6 +54,7 @@ public abstract class GenericDAOImpl<T> implements GenericDAO<T>
         }
     }
     
+    @Override
     public List<T> listar(Class clazz){
         List<T> objects = null;
         try{

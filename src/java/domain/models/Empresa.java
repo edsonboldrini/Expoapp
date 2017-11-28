@@ -5,34 +5,62 @@
  */
 package domain.models;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  *
  * @author 20151bsi0223
  */
 @Entity
-@Table (name = "EMPRESA")
+@DiscriminatorValue("empresa")
+@Table (name = "empresa")
 public class Empresa extends Usuario{
     private String sobre;
     private String cnpj;
-    private Date dt_abertura;
-    private int fk_bairro_id;
-    private int fk_usuario_id;
+    private LocalDate dt_abertura;
     
     public Empresa(){
         
     }
-    
-    public Empresa(String sobre, String cnpj, Date dt_abertura,int fk_bairro_id, int fk_usuario_id)
-    {
-       
-        this.cnpj = cnpj;
+
+    public Empresa(String sobre, String cnpj, LocalDate dt_abertura, String login, String senha, String email, String nome, String logradouro, String endereco, String cep, Bairro bairro) {
+        super( login, senha, email, nome,2, logradouro, endereco, cep, bairro);
         this.sobre = sobre;
-        this.fk_bairro_id = fk_bairro_id;
-        this.fk_usuario_id = fk_usuario_id;
+        this.cnpj = cnpj;
+        this.dt_abertura = dt_abertura;
+    }
+
+    public Empresa(String sobre, String cnpj, LocalDate dt_abertura) {
+        this.sobre = sobre;
+        this.cnpj = cnpj;
+        this.dt_abertura = dt_abertura;
+    }
+
+    public String getSobre() {
+        return sobre;
+    }
+
+    public void setSobre(String sobre) {
+        this.sobre = sobre;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public LocalDate getDt_abertura() {
+        return dt_abertura;
+    }
+
+    public void setDt_abertura(LocalDate dt_abertura) {
+        this.dt_abertura = dt_abertura;
+    }
         
-    }     
     
 }

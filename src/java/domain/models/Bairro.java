@@ -5,9 +5,7 @@
  */
 package domain.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *
@@ -18,6 +16,20 @@ import javax.persistence.Table;
 public class Bairro {
     @Id
     private int id;
+
+    
     private String nome;
-    private int fk_cidade_id;
+    @ManyToOne
+    @JoinColumn(name = "cidadeId")
+    private Cidade cidade;
+    
+    public Bairro(int id, String nome, Cidade cidade) {
+        this.id = id;
+        this.nome = nome;
+        this.cidade = cidade;
+    }
+
+    public Bairro(int id) {
+        this.id = id;
+    }
 }

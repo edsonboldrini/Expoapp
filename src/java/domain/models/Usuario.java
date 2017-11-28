@@ -5,6 +5,8 @@
  */
 package domain.models;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -13,38 +15,63 @@ import java.util.Date;
  * @author 20151bsi0223
  */
 @Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@DiscriminatorColumn(name="tipoUsuario", discriminatorType=DiscriminatorType.STRING )
 @Table (name = "USUARIO")
-public class Usuario {
+public class Usuario implements Serializable {
+
+    
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String login;
     private String senha;
     private String email;
-    private int tipo;
-    private Date dt_cadastro;
+    private LocalDateTime dt_cadastro;
+//    @Column(nullable=false,insertable = false,updatable = false)
+    private int tipoUsuario;
     private String nome;
     private String logradouro;
     private String endereco;
     private String cep;
-    
-    public Usuario()
-    {
-        
-    }
-    
-    public Usuario(String login, String senha, String email, int tipo, Date dt_cadastro, String nome, String logradouro, String endereco, String cep)
-    {
+    @ManyToOne
+    @JoinColumn(name = "bairroId")
+    private Bairro bairro;
+
+
+    public Usuario(int id, String login, String senha, String email, String nome, String logradouro, String endereco, String cep, Bairro bairro) {
+        this.id = id;
         this.login = login;
         this.senha = senha;
         this.email = email;
-        this.tipo = tipo;
-        this.dt_cadastro = dt_cadastro;
+        this.dt_cadastro = LocalDateTime.now();
         this.nome = nome;
         this.logradouro = logradouro;
         this.endereco = endereco;
-        this.cep= cep;
+        this.cep = cep;
+        this.bairro = bairro;
+    }
+    public Usuario(String login, String senha, String email, String nome,int tipo, String logradouro, String endereco, String cep, Bairro bairro) {
+        this.login = login;
+        this.senha = senha;
+        this.email = email;
+        this.nome = nome;
+        this.tipoUsuario = tipo;
+        this.dt_cadastro = LocalDateTime.now();
+        this.logradouro = logradouro;
+        this.endereco = endereco;
+        this.cep = cep;
+        this.bairro = bairro;
+    }
+    public Usuario(){}
+
+    public Bairro getBairro() {
+        return bairro;
     }
 
+    public void setBairro(Bairro bairro) {
+        this.bairro = bairro;
+    }
     public int getId() {
         return id;
     }
@@ -77,19 +104,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public int getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
-    }
-
-    public Date getDt_cadastro() {
+    public LocalDateTime getDt_cadastro() {
         return dt_cadastro;
     }
 
-    public void setDt_cadastro(Date dt_cadastro) {
+    public void setDt_cadastro(LocalDateTime dt_cadastro) {
         this.dt_cadastro = dt_cadastro;
     }
 
