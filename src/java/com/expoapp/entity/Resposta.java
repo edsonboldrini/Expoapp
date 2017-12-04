@@ -1,5 +1,5 @@
 
-package domain.models;
+package com.expoapp.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;

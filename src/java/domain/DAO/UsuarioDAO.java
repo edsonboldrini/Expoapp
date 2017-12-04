@@ -5,7 +5,7 @@
  */
 package domain.DAO;
 
-import domain.models.Usuario;
+import com.expoapp.entity.Usuario;
 
 /**
  *

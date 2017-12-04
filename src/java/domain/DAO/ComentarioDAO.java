@@ -5,7 +5,7 @@
  */
 package domain.DAO;
 
-import domain.models.Comentario;
+import com.expoapp.entity.Comentario;
 
 /**
  *

@@ -5,7 +5,7 @@
  */
 package domain.DAO;
 
-import domain.models.Cliente;
+import com.expoapp.entity.Cliente;
 import java.util.List;
 import javax.persistence.Query;
 

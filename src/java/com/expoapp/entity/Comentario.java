@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain.models;
+package com.expoapp.entity;
 
-import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -14,8 +13,13 @@ import java.util.Date;
  * @author 20151bsi0223
  */
 @Entity
-@Table (name = "EXPOSICAO_TEMP")
-public class ExposicaoTemp extends Exposicao{
-    private Date dt_fim;
-    private int fk_exposicao_id;
+@Table (name = "COMENTARIO")
+public class Comentario {
+    @Id
+    private int id;
+    private String descricao;
+    private Date data_cadastro;
+    private int nota;
+    private int tipo;
+    private int fk_cliente_id;
 }

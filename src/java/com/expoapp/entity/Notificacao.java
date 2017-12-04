@@ -3,22 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain.models;
+package com.expoapp.entity;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  *
  * @author 20151bsi0223
  */
 @Entity
-@Table (name = "CIDADE")
-public class Cidade implements Serializable {
+@Table (name = "NOTIFICACAO")
+public class Notificacao implements Serializable {
     @Id
     private int id;
-    private String nome;
-    @ManyToOne
-    @JoinColumn(name = "estadoId")
-    private Estado estado;
+    private LocalDateTime data_cadastro;
+    private String descricao;
+    private int tipo;
+    private int id_origem;
+    private int tipo_origem;
 }

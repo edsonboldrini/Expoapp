@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain.models;
+package com.expoapp.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -18,13 +18,14 @@ import java.util.Date;
 @Table (name = "PECA")
 public class Peca implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nome;
     private String autor;
-    private LocalDate dt_criacao;
+    private LocalDate dtCriacao;
     private String sobre;
     @ManyToOne
-    @JoinColumn(name = "statusId")
+    @JoinColumn(name = "exposicaoid")
     private Exposicao exposicao;
 
     public int getId() {
@@ -51,12 +52,12 @@ public class Peca implements Serializable {
         this.autor = autor;
     }
 
-    public LocalDate getDt_criacao() {
-        return dt_criacao;
+    public LocalDate getDtCriacao() {
+        return dtCriacao;
     }
 
-    public void setDt_criacao(LocalDate dt_criacao) {
-        this.dt_criacao = dt_criacao;
+    public void setDtCriacao(LocalDate dtCriacao) {
+        this.dtCriacao = dtCriacao;
     }
 
     public String getSobre() {

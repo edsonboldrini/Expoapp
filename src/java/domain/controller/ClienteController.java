@@ -6,7 +6,7 @@
 package domain.controller;
 
 import domain.DAO.ClienteDAOImpl;
-import domain.models.Cliente;
+import com.expoapp.entity.Cliente;
 import java.util.List;
 
 /**

@@ -5,7 +5,7 @@
  */
 package domain.DAO;
 
-import domain.models.Imagem;
+import com.expoapp.entity.Imagem;
 
 /**
  *

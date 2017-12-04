@@ -5,7 +5,7 @@
  */
 package domain.DAO;
 
-import domain.models.Peca;
+import com.expoapp.entity.Peca;
 
 /**
  *

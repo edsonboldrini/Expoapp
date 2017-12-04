@@ -5,7 +5,7 @@
  */
 package domain.DAO;
 
-import domain.models.Notificacao;
+import com.expoapp.entity.Notificacao;
 
 /**
  *

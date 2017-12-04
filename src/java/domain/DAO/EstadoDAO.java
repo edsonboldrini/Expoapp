@@ -5,7 +5,7 @@
  */
 package domain.DAO;
 
-import domain.models.Estado;
+import com.expoapp.entity.Estado;
 
 /**
  *

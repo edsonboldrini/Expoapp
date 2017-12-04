@@ -5,7 +5,7 @@
  */
 package domain.DAO;
 
-import domain.models.ExposicaoTemp;
+import com.expoapp.entity.ExposicaoTemp;
 
 /**
  *
