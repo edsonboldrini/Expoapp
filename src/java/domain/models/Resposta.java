@@ -1,10 +1,11 @@
 
 package domain.models;
 
+import java.io.Serializable;
 import javax.persistence.*;
 @Entity
 @Table (name = "RESPOSTA")
-public class Resposta {
+public class Resposta implements Serializable {
     @Id
     private int id;
     private boolean curtida;

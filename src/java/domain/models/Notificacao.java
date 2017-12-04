@@ -5,6 +5,8 @@
  */
 package domain.models;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -14,10 +16,10 @@ import java.util.Date;
  */
 @Entity
 @Table (name = "NOTIFICACAO")
-public class Notificacao {
+public class Notificacao implements Serializable {
     @Id
     private int id;
-    private Date data;
+    private LocalDateTime data_cadastro;
     private String descricao;
     private int tipo;
     private int id_origem;

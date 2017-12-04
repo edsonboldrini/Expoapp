@@ -5,6 +5,8 @@
  */
 package domain.models;
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -14,12 +16,54 @@ import java.util.Date;
  */
 @Entity
 @Table (name = "PECA")
-public class Peca {
+public class Peca implements Serializable {
     @Id
     private int id;
     private String nome;
     private String autor;
-    private Date dt_criacao;
+    private LocalDate dt_criacao;
     private String sobre;
-    private int fk_exposicao_id;
+    @ManyToOne
+    @JoinColumn(name = "statusId")
+    private Exposicao exposicao;
+
+    public int getId() {
+        return id;
+    }
+
+    public Exposicao getExposicao() {
+        return exposicao;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public LocalDate getDt_criacao() {
+        return dt_criacao;
+    }
+
+    public void setDt_criacao(LocalDate dt_criacao) {
+        this.dt_criacao = dt_criacao;
+    }
+
+    public String getSobre() {
+        return sobre;
+    }
+
+    public void setSobre(String sobre) {
+        this.sobre = sobre;
+    }
 }
