@@ -7,6 +7,7 @@ package com.expoapp.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -22,7 +23,7 @@ public class Peca implements Serializable {
     private Integer id;
     private String nome;
     private String autor;
-    private LocalDate dtCriacao;
+    private LocalDateTime dtCriacao;
     private String sobre;
     @ManyToOne
     @JoinColumn(name = "exposicaoid")
@@ -56,11 +57,11 @@ public class Peca implements Serializable {
         this.autor = autor;
     }
 
-    public LocalDate getDtCriacao() {
+    public LocalDateTime getDtCriacao() {
         return dtCriacao;
     }
 
-    public void setDtCriacao(LocalDate dtCriacao) {
+    public void setDtCriacao(LocalDateTime dtCriacao) {
         this.dtCriacao = dtCriacao;
     }
 

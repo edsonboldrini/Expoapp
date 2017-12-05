@@ -17,7 +17,7 @@ public class PecaDto {
     private String autor;
     private LocalDateTime dtCriacao;
     private String sobre;
-    private String exposicao;
+    private Integer exposicao;
 
     /**
      * @return the id
@@ -92,14 +92,14 @@ public class PecaDto {
     /**
      * @return the exposicao
      */
-    public String getExposicao() {
+    public Integer getExposicao() {
         return exposicao;
     }
 
     /**
      * @param exposicao the exposicao to set
      */
-    public void setExposicao(String exposicao) {
+    public void setExposicao(Integer exposicao) {
         this.exposicao = exposicao;
     }
 }
