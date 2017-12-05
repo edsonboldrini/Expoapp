@@ -6,7 +6,6 @@ import com.expoapp.entity.Cliente;
 import com.expoapp.entity.Empresa;
 import com.expoapp.entity.Estado;
 import com.expoapp.entity.Usuario;
-import domain.util.Conexao;
 import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

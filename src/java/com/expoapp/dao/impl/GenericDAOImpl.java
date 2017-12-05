@@ -6,8 +6,6 @@
 package com.expoapp.dao.impl;
 
 import com.expoapp.dao.GenericDAO;
-import domain.util.Conexao;
-import javax.persistence.*;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
