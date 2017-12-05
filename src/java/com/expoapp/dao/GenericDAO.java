@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain.DAO;
+package com.expoapp.dao;
 
 import java.util.List;
 
@@ -13,8 +13,10 @@ import java.util.List;
  */
 public interface GenericDAO<T> {
     
-    public void inserir( T obj) throws Exception;
-    public void alterar( T obj) throws Exception;
-    public T getById(final int id);
-    public List<T> listar(Class clazz) throws Exception;
+    public void inserir( T obj);
+    public void alterar( T obj);
+    public T getById(Class clazz,Integer id);
+    public List<T> listar(Class clazz);
+    public List<T> listar();
+    public void delete(T obj);
 }

@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain.DAO;
+package com.expoapp.dao;
 
-import com.expoapp.entity.Cidade;
+import com.expoapp.entity.Bairro;
 
 /**
  *
- * @author edson
+ * @author yagoz
  */
-public interface CidadeDAO extends GenericDAO<Cidade>{
+public interface BairroDao extends GenericDAO<Bairro>{
     
 }

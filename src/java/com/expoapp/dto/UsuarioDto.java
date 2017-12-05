@@ -27,7 +27,7 @@ public class UsuarioDto {
     private String logradouro;
     private String endereco;
     private String cep;
-    private String bairro;
+    private Integer bairroid;
 
     public Integer getId() {
         return id;
@@ -101,13 +101,20 @@ public class UsuarioDto {
         this.cep = cep;
     }
 
-    public String getBairro() {
-        return bairro;
+    public LocalDateTime getDtCadastro() {
+        return dtCadastro;
     }
 
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
+    public void setDtCadastro(LocalDateTime dtCadastro) {
+        this.dtCadastro = dtCadastro;
     }
-    
-    
+
+    public Integer getBairroid() {
+        return bairroid;
+    }
+
+    public void setBairroid(Integer bairroid) {
+        this.bairroid = bairroid;
+    }
+
 }

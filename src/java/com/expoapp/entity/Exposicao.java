@@ -30,6 +30,7 @@ public class Exposicao {
     private LocalTime hrInicio;
     private LocalTime hrFinal;
     private String logradouro;
+    private String endereco;
     @ManyToOne
     @JoinColumn(name = "empresaid", nullable = false)
     private Empresa empresa;
@@ -109,6 +110,14 @@ public class Exposicao {
 
     public void setPecas(List<Peca> pecas) {
         this.pecas = pecas;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
     
     
