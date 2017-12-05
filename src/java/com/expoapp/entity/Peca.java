@@ -19,7 +19,7 @@ import java.util.Date;
 public class Peca implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
     private String nome;
     private String autor;
     private LocalDate dtCriacao;
@@ -28,10 +28,14 @@ public class Peca implements Serializable {
     @JoinColumn(name = "exposicaoid")
     private Exposicao exposicao;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
+     public void setId(Integer id) {
+        this.id = id;
+    }
+     
     public Exposicao getExposicao() {
         return exposicao;
     }
@@ -67,4 +71,9 @@ public class Peca implements Serializable {
     public void setSobre(String sobre) {
         this.sobre = sobre;
     }
+
+    /**
+     * @param id the id to set
+     */
+   
 }
