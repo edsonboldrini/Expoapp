@@ -17,9 +17,9 @@ public class ComentarioMapper {
     public Comentario mapDtoToEntity(ComentarioDto comentarioDto){
 	Comentario comentario = new Comentario();
 	if(null != comentarioDto.getId()){comentario.setId(comentarioDto.getId());}
-	if(null != pecaDto.getNome()){peca.setNome(pecaDto.getNome());}
-        if(null != pecaDto.getAutor()){peca.setAutor(pecaDto.getAutor());}
-        if(null != pecaDto.getDtCriacao()){peca.setDtCriacao(pecaDto.getDtCriacao());}      
-    return peca;    
-    }
+	if(null != comentarioDto.getDescricao()){comentario.setDescricao(comentarioDto.getDescricao());}
+        if(null != comentarioDto.getData_cadastro()){comentario.setData_cadastro(comentarioDto.getData_cadastro());}
+        if(null != comentarioDto.getNota()){comentario.setNota(comentarioDto.getNota());}     
+        return comentario;
+    }    
 }

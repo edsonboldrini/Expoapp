@@ -8,6 +8,7 @@ package com.expoapp.service.impl;
 import com.expoapp.dao.ExposicaoDao;
 import com.expoapp.dao.PecaDao;
 import com.expoapp.dto.PecaDto;
+import com.expoapp.entity.Exposicao;
 import com.expoapp.entity.Peca;
 import com.expoapp.mapper.PecaMapper;
 import com.expoapp.service.PecaService;
@@ -31,7 +32,7 @@ public class PecaServiceImpl implements PecaService{
     public void create(PecaDto pecaDto) {
         Peca peca = pecaMapper.mapDtoToEntity(pecaDto);
         if (null != pecaDto.getExposicao()){
-            Exposicao exposicao = exposicaoDao.getById(ExposicaoDao.class, pecaDto.getExposicao())
+            Exposicao exposicao = exposicaoDao.getById(ExposicaoDao.class, pecaDto.getExposicao());
         }
         pecaDao.inserir(pecaMapper.mapDtoToEntity(pecaDto));
     }

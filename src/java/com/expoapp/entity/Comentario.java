@@ -5,6 +5,7 @@
  */
 package com.expoapp.entity;
 
+import java.time.LocalDateTime;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -18,7 +19,7 @@ public class Comentario {
     @Id
     private Integer id;
     private String descricao;
-    private Date data_cadastro;
+    private LocalDateTime data_cadastro;
     private int nota;
     private int tipo;
     private int fk_cliente_id;
@@ -54,14 +55,14 @@ public class Comentario {
     /**
      * @return the data_cadastro
      */
-    public Date getData_cadastro() {
+    public LocalDateTime getData_cadastro() {
         return data_cadastro;
     }
 
     /**
      * @param data_cadastro the data_cadastro to set
      */
-    public void setData_cadastro(Date data_cadastro) {
+    public void setData_cadastro(LocalDateTime data_cadastro) {
         this.data_cadastro = data_cadastro;
     }
 
