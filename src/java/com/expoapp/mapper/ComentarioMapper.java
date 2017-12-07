@@ -21,5 +21,14 @@ public class ComentarioMapper {
         if(null != comentarioDto.getData_cadastro()){comentario.setData_cadastro(comentarioDto.getData_cadastro());}
         if(null != comentarioDto.getNota()){comentario.setNota(comentarioDto.getNota());}     
         return comentario;
-    }    
+    }
+    
+    public ComentarioDto mapEntityToDto (Comentario comentario){
+	ComentarioDto comentarioDto = new ComentarioDto();
+	if(null != comentario.getId()){comentarioDto.setId(comentario.getId());}
+	if(null != comentario.getDescricao()){comentarioDto.setDescricao(comentario.getDescricao());}
+        if(null != comentario.getData_cadastro()){comentarioDto.setData_cadastro(comentario.getData_cadastro());}
+        if(null != comentario.getNota()){comentarioDto.setNota(comentario.getNota());}   
+        return comentarioDto;    
+    }
 }

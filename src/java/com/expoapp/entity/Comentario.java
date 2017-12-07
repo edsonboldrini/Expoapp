@@ -20,7 +20,7 @@ public class Comentario {
     private Integer id;
     private String descricao;
     private LocalDateTime data_cadastro;
-    private int nota;
+    private Integer nota;
     private int tipo;
     private int fk_cliente_id;
 
@@ -69,14 +69,14 @@ public class Comentario {
     /**
      * @return the nota
      */
-    public int getNota() {
+    public Integer getNota() {
         return nota;
     }
 
     /**
      * @param nota the nota to set
      */
-    public void setNota(int nota) {
+    public void setNota(Integer nota) {
         this.nota = nota;
     }
 
