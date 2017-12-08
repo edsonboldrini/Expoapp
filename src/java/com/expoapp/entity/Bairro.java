@@ -18,18 +18,18 @@ public class Bairro {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private int id;
+    private Integer id;
     @Column(name = "nome",length = 100)
     private String nome;
     @ManyToOne
     @JoinColumn(name = "cidadeid", nullable = false)
     private Cidade cidade;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

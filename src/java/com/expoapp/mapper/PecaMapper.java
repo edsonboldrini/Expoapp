@@ -20,10 +20,10 @@ public class PecaMapper {
 	if(null != pecaDto.getNome()){peca.setNome(pecaDto.getNome());}
         if(null != pecaDto.getAutor()){peca.setAutor(pecaDto.getAutor());}
         if(null != pecaDto.getDtCriacao()){peca.setDtCriacao(pecaDto.getDtCriacao());}      
-    return peca;    
+        return peca;    
     }
     
-     public PecaDto mapEntityToDto (Peca peca){
+    public PecaDto mapEntityToDto (Peca peca){
 	PecaDto pecaDto = new PecaDto();
 	if(null != peca.getId()){pecaDto.setId(peca.getId());}
 	if(null != peca.getNome()){pecaDto.setNome(peca.getNome());}
@@ -31,5 +31,5 @@ public class PecaMapper {
         if(null != peca.getDtCriacao()){pecaDto.setDtCriacao(peca.getDtCriacao());}   
         if(null != peca.getExposicao()){pecaDto.setExposicao(peca.getExposicao().getId());}
         return pecaDto;    
-        }
+    }
 }

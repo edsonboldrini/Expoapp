@@ -16,19 +16,19 @@ public class ComentarioDto {
     private Integer id;
     private String descricao;
     private LocalDateTime data_cadastro;
-    private int nota;
+    private Integer nota;
 
     /**
      * @return the id
      */
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -63,14 +63,14 @@ public class ComentarioDto {
     /**
      * @return the nota
      */
-    public int getNota() {
+    public Integer getNota() {
         return nota;
     }
 
     /**
      * @param nota the nota to set
      */
-    public void setNota(int nota) {
+    public void setNota(Integer nota) {
         this.nota = nota;
     }
 

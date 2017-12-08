@@ -11,34 +11,34 @@ package com.expoapp.dto;
  */
 public class RespostaDto {
     private Integer id;
-    private boolean curtida;
+    private Boolean curtida;
     private String descricao;
 
     /**
      * @return the id
      */
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
     /**
      * @return the curtida
      */
-    public boolean isCurtida() {
+    public Boolean isCurtida() {
         return curtida;
     }
 
     /**
      * @param curtida the curtida to set
      */
-    public void setCurtida(boolean curtida) {
+    public void setCurtida(Boolean curtida) {
         this.curtida = curtida;
     }
 

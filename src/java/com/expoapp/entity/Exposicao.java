@@ -24,7 +24,7 @@ public class Exposicao {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private int id;
+    private Integer id;
     private String descricao;
     private LocalDate dtInicio;
     private LocalTime hrInicio;
@@ -40,11 +40,11 @@ public class Exposicao {
     @OneToMany(mappedBy = "exposicao",cascade = CascadeType.ALL)
     private List<Peca> pecas;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
