@@ -5,6 +5,7 @@
  */
 package com.expoapp.dto;
 
+import com.expoapp.entity.Cidade;
 import java.util.List;
 
 /**
@@ -15,19 +16,19 @@ public class EstadoDto {
     private Integer id;
     private String sigla;
     private String nome;
-    private List<String> cidades;
+    private List<Cidade> cidades;
 
     /**
      * @return the id
      */
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -62,14 +63,14 @@ public class EstadoDto {
     /**
      * @return the cidades
      */
-    public List<String> getCidades() {
+    public List<Cidade> getCidades() {
         return cidades;
     }
 
     /**
      * @param cidades the cidades to set
      */
-    public void setCidades(List<String> cidades) {
+    public void setCidades(List<Cidade> cidades) {
         this.cidades = cidades;
     }
 }

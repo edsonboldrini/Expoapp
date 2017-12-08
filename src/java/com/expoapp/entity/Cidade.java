@@ -20,7 +20,7 @@ public class Cidade implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private int id;
+    private Integer id;
     @Column(name = "nome")
     private String nome;
     @ManyToOne
@@ -29,11 +29,11 @@ public class Cidade implements Serializable {
     @OneToMany(mappedBy = "cidade",cascade = CascadeType.ALL)
     private List<Bairro> bairros;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

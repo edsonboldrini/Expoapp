@@ -19,7 +19,7 @@ public class Estado implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id",length = 20)
-    private int id;
+    private Integer id;
     @Column(name = "sigla",length = 100)
     private String sigla;
     @Column(name = "nome",length = 100)
@@ -27,11 +27,11 @@ public class Estado implements Serializable {
     @OneToMany(mappedBy = "estado",cascade = CascadeType.ALL)
     private List<Cidade> cidades;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

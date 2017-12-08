@@ -5,6 +5,8 @@
  */
 package com.expoapp.dto;
 
+import com.expoapp.entity.Bairro;
+import com.expoapp.entity.Estado;
 import java.util.List;
 
 /**
@@ -14,20 +16,20 @@ import java.util.List;
 public class CidadeDto {
     private Integer id;
     private String nome;
-    private String estado;
-    private List<String> bairros;
+    private Estado estado;
+    private List<Bairro> bairros;
 
     /**
      * @return the id
      */
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -48,28 +50,28 @@ public class CidadeDto {
     /**
      * @return the estado
      */
-    public String getEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
     /**
      * @param estado the estado to set
      */
-    public void setEstado(String estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
 
     /**
      * @return the bairros
      */
-    public List<String> getBairros() {
+    public List<Bairro> getBairros() {
         return bairros;
     }
 
     /**
      * @param bairros the bairros to set
      */
-    public void setBairros(List<String> bairros) {
+    public void setBairros(List<Bairro> bairros) {
         this.bairros = bairros;
     }
     
