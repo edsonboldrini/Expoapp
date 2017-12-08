@@ -5,6 +5,8 @@
  */
 package com.expoapp.dto;
 
+import com.expoapp.entity.Cidade;
+
 /**
  *
  * @author baumi
@@ -12,19 +14,19 @@ package com.expoapp.dto;
 public class BairroDto {
     private Integer id;
     private String nome;
-    private String cidade;
+    private Cidade cidade;
 
     /**
      * @return the id
      */
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -45,14 +47,14 @@ public class BairroDto {
     /**
      * @return the cidade
      */
-    public String getCidade() {
+    public Cidade getCidade() {
         return cidade;
     }
 
     /**
      * @param cidade the cidade to set
      */
-    public void setCidade(String cidade) {
+    public void setCidade(Cidade cidade) {
         this.cidade = cidade;
     }
 }
