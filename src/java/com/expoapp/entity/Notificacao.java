@@ -18,10 +18,60 @@ import java.util.Date;
 @Table (name = "NOTIFICACAO")
 public class Notificacao implements Serializable {
     @Id
-    private int id;
+    private Integer id;
     private LocalDateTime data_cadastro;
     private String descricao;
-    private int tipo;
-    private int id_origem;
-    private int tipo_origem;
+    private Integer tipo;
+    private Integer id_origem;
+    private Integer tipo_origem;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getData_cadastro() {
+        return data_cadastro;
+    }
+
+    public void setData_cadastro(LocalDateTime data_cadastro) {
+        this.data_cadastro = data_cadastro;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Integer getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Integer tipo) {
+        this.tipo = tipo;
+    }
+
+    public Integer getId_origem() {
+        return id_origem;
+    }
+
+    public void setId_origem(Integer id_origem) {
+        this.id_origem = id_origem;
+    }
+
+    public Integer getTipo_origem() {
+        return tipo_origem;
+    }
+
+    public void setTipo_origem(Integer tipo_origem) {
+        this.tipo_origem = tipo_origem;
+    }
+    
+    
 }

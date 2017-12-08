@@ -18,7 +18,7 @@ import javax.persistence.*;
 public class NotaExposicao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     
     @OneToOne
     @JoinColumn(name="exposicaoId")
@@ -28,10 +28,14 @@ public class NotaExposicao implements Serializable {
     @JoinColumn(name="clienteId")
     private Cliente cliente;
     
-    private int nota;
+    private Integer nota;
 
-    public int getId() {
+    public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Exposicao getExposicao() {
