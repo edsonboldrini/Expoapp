@@ -16,7 +16,7 @@ import java.util.List;
 public class CidadeDto {
     private Integer id;
     private String nome;
-    private Estado estado;
+    private Integer estadoid;
     private List<Bairro> bairros;
 
     /**
@@ -48,20 +48,6 @@ public class CidadeDto {
     }
 
     /**
-     * @return the estado
-     */
-    public Estado getEstado() {
-        return estado;
-    }
-
-    /**
-     * @param estado the estado to set
-     */
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
-
-    /**
      * @return the bairros
      */
     public List<Bairro> getBairros() {
@@ -74,7 +60,14 @@ public class CidadeDto {
     public void setBairros(List<Bairro> bairros) {
         this.bairros = bairros;
     }
-    
-    
+
+    public Integer getEstadoid() {
+        return estadoid;
+    }
+
+    public void setEstadoid(Integer estadoid) {
+        this.estadoid = estadoid;
+    }
+     
     
 }

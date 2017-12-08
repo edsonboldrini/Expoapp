@@ -14,7 +14,7 @@ import com.expoapp.entity.Cidade;
 public class BairroDto {
     private Integer id;
     private String nome;
-    private Cidade cidade;
+    private Integer cidadeid;
 
     /**
      * @return the id
@@ -44,17 +44,16 @@ public class BairroDto {
         this.nome = nome;
     }
 
-    /**
-     * @return the cidade
-     */
-    public Cidade getCidade() {
-        return cidade;
+    public Integer getCidadeid() {
+        return cidadeid;
+    }
+
+    public void setCidadeid(Integer cidadeid) {
+        this.cidadeid = cidadeid;
     }
 
     /**
-     * @param cidade the cidade to set
+     * @return the cidade
      */
-    public void setCidade(Cidade cidade) {
-        this.cidade = cidade;
-    }
+    
 }
