@@ -8,9 +8,11 @@ package com.expoapp.service.impl;
 import com.expoapp.dao.ExposicaoDao;
 import com.expoapp.dao.PecaDao;
 import com.expoapp.dto.PecaDto;
+import com.expoapp.entity.Exposicao;
 import com.expoapp.entity.Peca;
 import com.expoapp.mapper.PecaMapper;
 import com.expoapp.service.PecaService;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -31,14 +33,30 @@ public class PecaServiceImpl implements PecaService{
     public void create(PecaDto pecaDto) {
         Peca peca = pecaMapper.mapDtoToEntity(pecaDto);
         if (null != pecaDto.getExposicao()){
-            Exposicao exposicao = exposicaoDao.getById(ExposicaoDao.class, pecaDto.getExposicao())
+            Exposicao exposicao = exposicaoDao.getById(ExposicaoDao.class, pecaDto.getExposicao());
+            if(null != exposicao.getPecas()){
+                exposicao.getPecas().add(peca);
+            }
+            else
+            {
+                List<Peca> pecas = new ArrayList<Peca>();
+                pecas.add(peca);
+                exposicao.setPecas(pecas);
+            }
         }
-        pecaDao.inserir(pecaMapper.mapDtoToEntity(pecaDto));
+        pecaDao.inserir(peca);
     }
 
     @Override
     public List<PecaDto> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Peca> pecas = pecaDao.listar();
+        List<PecaDto> pecaDtos = new ArrayList<PecaDto>();
+
+        for (Peca peca : pecas) {
+            pecaDtos.add(pecaMapper.mapEntityToDto(peca));
+        }
+
+        return pecaDtos;
     }
 
     @Override
