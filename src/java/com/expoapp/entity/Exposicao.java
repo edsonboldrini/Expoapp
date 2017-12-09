@@ -39,6 +39,8 @@ public class Exposicao {
     private Bairro bairro;
     @OneToMany(mappedBy = "exposicao",cascade = CascadeType.ALL)
     private List<Peca> pecas;
+    @OneToMany(mappedBy="empresa",cascade=CascadeType.ALL)
+    private List<Notificacao> notificacoes;
 
     public Integer getId() {
         return id;
@@ -119,7 +121,12 @@ public class Exposicao {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    
-    
-    
+
+    public List<Notificacao> getNotificacoes() {
+        return notificacoes;
+    }
+
+    public void setNotificacoes(List<Notificacao> notificacoes) {
+        this.notificacoes = notificacoes;
+    }
 }

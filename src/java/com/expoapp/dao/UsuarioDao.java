@@ -13,5 +13,7 @@ import com.expoapp.entity.Usuario;
  * @author edson
  */
 public interface UsuarioDao extends GenericDAO<Usuario>{
-    
+    public Usuario getByCpf(String cpf);
+    public Usuario getByCnpj(String cnpj);
+    public Usuario login(String login,String senha);
 }

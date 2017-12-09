@@ -5,9 +5,9 @@
  */
 package com.expoapp.entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  *
@@ -15,8 +15,9 @@ import java.util.Date;
  */
 @Entity
 @Table (name = "COMENTARIO")
-public class Comentario {
+public class Comentario implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String descricao;
     private LocalDateTime data_cadastro;

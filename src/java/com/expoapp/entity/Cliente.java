@@ -7,6 +7,8 @@ package com.expoapp.entity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 
 /**
@@ -35,6 +37,12 @@ public class Cliente extends Usuario{
     private char sexo;
     @Column(name = "cpf",nullable = false,length = 11)
     private String cpf;
+    
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+	@JoinTable(name = "cliente_notificacao", 
+				joinColumns = @JoinColumn(name = "cliente_id", referencedColumnName="ID"), 
+				inverseJoinColumns = @JoinColumn(name = "notificacao_id", referencedColumnName="ID"))
+    private Set<Notificacao> notificacoes = new HashSet<Notificacao>();
 
     public LocalDate getDataNascimento() {
         return dataNascimento;
@@ -58,6 +66,14 @@ public class Cliente extends Usuario{
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public Set<Notificacao> getNotificacoes() {
+        return notificacoes;
+    }
+
+    public void setNotificacoes(Set<Notificacao> notificacoes) {
+        this.notificacoes = notificacoes;
     }
     
 }

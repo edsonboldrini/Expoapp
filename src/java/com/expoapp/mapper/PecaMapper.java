@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
  * 
  * @author baumi
  */
+@Component
 public class PecaMapper {
     public Peca mapDtoToEntity(PecaDto pecaDto){
 	Peca peca = new Peca();

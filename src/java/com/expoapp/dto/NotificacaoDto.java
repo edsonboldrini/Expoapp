@@ -16,6 +16,33 @@ public class NotificacaoDto {
     private Integer id;
     private LocalDateTime data_cadastro;
     private String descricao;
+    private Integer tipo;
+    private Integer exposicaoid;
+    private Integer empresaid;
+
+    public Integer getExposicaoid() {
+        return exposicaoid;
+    }
+
+    public void setExposicaoid(Integer exposicaoid) {
+        this.exposicaoid = exposicaoid;
+    }
+
+    public Integer getEmpresaid() {
+        return empresaid;
+    }
+
+    public void setEmpresaid(Integer empresaid) {
+        this.empresaid = empresaid;
+    }
+
+    public Integer getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Integer tipo) {
+        this.tipo = tipo;
+    }
 
     /**
      * @return the id

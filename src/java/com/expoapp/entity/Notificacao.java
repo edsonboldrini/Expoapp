@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -18,12 +20,37 @@ import java.util.Date;
 @Table (name = "NOTIFICACAO")
 public class Notificacao implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private LocalDateTime data_cadastro;
     private String descricao;
     private Integer tipo;
-    private Integer id_origem;
-    private Integer tipo_origem;
+    @ManyToOne
+    @JoinColumn(name="exposicaoid", nullable=false)
+    private Exposicao exposicao;
+    @ManyToOne
+    @JoinColumn(name="empresaid", nullable=false)
+    private Empresa empresa;
+    
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "notificacoes")
+    private Set<Cliente> clientes = new HashSet<Cliente>();
+
+    public Exposicao getExposicao() {
+        return exposicao;
+    }
+
+    public void setExposicao(Exposicao exposicao) {
+        this.exposicao = exposicao;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
 
     public Integer getId() {
         return id;
@@ -55,23 +82,6 @@ public class Notificacao implements Serializable {
 
     public void setTipo(Integer tipo) {
         this.tipo = tipo;
-    }
-
-    public Integer getId_origem() {
-        return id_origem;
-    }
-
-    public void setId_origem(Integer id_origem) {
-        this.id_origem = id_origem;
-    }
-
-    public Integer getTipo_origem() {
-        return tipo_origem;
-    }
-
-    public void setTipo_origem(Integer tipo_origem) {
-        this.tipo_origem = tipo_origem;
-    }
-    
+    }    
     
 }

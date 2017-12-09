@@ -38,6 +38,8 @@ public class Empresa extends Usuario{
     private LocalDate dtAbertura;
     @OneToMany(mappedBy = "empresa",cascade = CascadeType.ALL)
     private List<Exposicao> exposicoes;
+    @OneToMany(mappedBy="empresa",cascade=CascadeType.ALL)
+    private List<Notificacao> notificacoes;
     
     public String getSobre() {
         return sobre;
@@ -69,6 +71,14 @@ public class Empresa extends Usuario{
 
     public void setExposicoes(List<Exposicao> exposicoes) {
         this.exposicoes = exposicoes;
+    }
+
+    public List<Notificacao> getNotificacoes() {
+        return notificacoes;
+    }
+
+    public void setNotificacoes(List<Notificacao> notificacoes) {
+        this.notificacoes = notificacoes;
     }
 
             

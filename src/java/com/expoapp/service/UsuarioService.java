@@ -16,7 +16,11 @@ public interface UsuarioService {
 
     public void create(UsuarioDto usuarioDto);
     public List<UsuarioDto> findAll();
+    public List<UsuarioDto> listar();
     public UsuarioDto findById(Integer id);
     public void remove(Integer usuarioId);
     public void edit(UsuarioDto usuarioDto);
+    public UsuarioDto buscaPorCpf(String cpf);
+    public UsuarioDto buscaPorCnpj(String cnpj);
+    public UsuarioDto buscaLoginSenha(String login,String senha);
 }

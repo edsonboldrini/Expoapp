@@ -79,4 +79,47 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuarioDao.alterar(usuarioMapper.mapDtoToEntity(usuarioDto));
     }
 
+    @Override
+    public List<UsuarioDto> listar() {
+        List<Usuario> usuarios = usuarioDao.listar(Usuario.class);
+
+        List<UsuarioDto> usuarioDtos = new ArrayList<UsuarioDto>();
+
+        for (Usuario usuario : usuarios) {
+            usuarioDtos.add(usuarioMapper.mapEntityToDto(usuario));
+        }
+
+        return usuarioDtos;
+    }
+
+    @Override
+    public UsuarioDto buscaPorCpf(String cpf) {
+        Usuario usuario = usuarioDao.getByCpf(cpf);
+        UsuarioDto usuarioDto = null;
+        if (null != usuario) {
+            usuarioDto = usuarioMapper.mapEntityToDto(usuario);
+        }
+        return usuarioDto;
+    }
+
+    @Override
+    public UsuarioDto buscaPorCnpj(String cnpj) {
+        Usuario usuario = usuarioDao.getByCnpj(cnpj);
+        UsuarioDto usuarioDto = null;
+        if (null != usuario) {
+            usuarioDto = usuarioMapper.mapEntityToDto(usuario);
+        }
+        return usuarioDto;
+    }
+
+    @Override
+    public UsuarioDto buscaLoginSenha(String login, String senha) {
+        Usuario usuario = usuarioDao.login(login,senha);
+        UsuarioDto usuarioDto = null;
+        if (null != usuario) {
+            usuarioDto = usuarioMapper.mapEntityToDto(usuario);
+        }
+        return usuarioDto;
+    }
+
 }

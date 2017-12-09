@@ -164,18 +164,19 @@ public class Testes {
         empresa.setDt_cadastro(LocalDateTime.now());
         empresa.setEmail("email");
         empresa.setEndereco("endereco");
-        empresa.setLogin("login");
+        empresa.setLogin("loginempresa");
         empresa.setLogradouro("casa");
-        empresa.setNome("yago");
+        empresa.setNome("empresa");
         empresa.setSenha("senha");
         ((EmpresaDto)empresa).setCnpj("1111111111111");
         ((EmpresaDto)empresa).setDtAbertura(LocalDate.of(1994, Month.MARCH, 22));
         ((EmpresaDto)empresa).setSobre("Nada");
         
         usuarioService.create(empresa);
+        UsuarioDto teste = usuarioService.buscaLoginSenha("login","senha");
         
-        
-        Assert.assertEquals(2L, usuarioDao.listar().size());
+        Assert.assertEquals("yago", teste.getNome());
+        //Assert.assertEquals(2L, usuarioDao.listar().size());
     }
     
     @Test

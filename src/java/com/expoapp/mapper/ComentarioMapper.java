@@ -13,6 +13,7 @@ import com.expoapp.dto.ComentarioDto;
  *
  * @author baumi
  */
+@Component
 public class ComentarioMapper {
     public Comentario mapDtoToEntity(ComentarioDto comentarioDto){
 	Comentario comentario = new Comentario();

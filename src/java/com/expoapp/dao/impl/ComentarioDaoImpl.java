@@ -5,8 +5,8 @@
  */
 package com.expoapp.dao.impl;
 
-import com.expoapp.dao.PecaDao;
-import com.expoapp.entity.Peca;
+import com.expoapp.dao.ComentarioDao;
+import com.expoapp.entity.Comentario;
 import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,16 +17,11 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class PecaDaoImpl extends GenericDAOImpl<Peca> implements PecaDao{
+public class ComentarioDaoImpl extends GenericDAOImpl<Comentario> implements ComentarioDao{ 
 
     @Override
-    public List<Peca> listar(Class clazz) {
+    public List<Comentario> listar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Peca> listar() {
-        return sessionFactory.getCurrentSession().createQuery("select peca from Peca peca order by peca.id").list();
     }
     
 }

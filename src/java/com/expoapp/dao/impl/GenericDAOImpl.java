@@ -39,11 +39,10 @@ public abstract class GenericDAOImpl<T> implements GenericDAO<T>
         sessionFactory.getCurrentSession().merge(obj);
     }
     
-//    @Override
-//    public List<T> listar(Class clazz){
-//        String lClass = clazz.getName().toLowerCase();
-//        return sessionFactory.getCurrentSession().createQuery("select " + lClass + " from " + clazz.getName() + " " + lClass + " order by " + lClass + ".id desc").list();
-//    }
+    @Override
+    public List<T> listar(Class clazz){
+        return sessionFactory.getCurrentSession().createCriteria(clazz).list();
+    }
     @Override
     public void delete(T obj){
         sessionFactory.getCurrentSession().delete(obj);

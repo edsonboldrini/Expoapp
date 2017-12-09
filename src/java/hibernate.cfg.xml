@@ -51,5 +51,7 @@ Contributor(s):
       <mapping class="com.expoapp.entity.Exposicao" />
       <mapping class="com.expoapp.entity.ExposicaoTemp" />
       <mapping class="com.expoapp.entity.Peca" />
+      <mapping class="com.expoapp.entity.Notificacao" />
+      <mapping class="com.expoapp.entity.Comentario" />
   </session-factory>
 </hibernate-configuration>
