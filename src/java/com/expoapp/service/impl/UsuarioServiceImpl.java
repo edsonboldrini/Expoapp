@@ -122,4 +122,30 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarioDto;
     }
 
+    @Override
+    public List<UsuarioDto> listarClientes() {
+        List<Usuario> usuarios = usuarioDao.listarClientes();
+
+        List<UsuarioDto> usuarioDtos = new ArrayList<UsuarioDto>();
+
+        for (Usuario usuario : usuarios) {
+            usuarioDtos.add(usuarioMapper.mapEntityToDto(usuario));
+        }
+
+        return usuarioDtos;
+    }
+
+    @Override
+    public List<UsuarioDto> listarEmpresas() {
+        List<Usuario> usuarios = usuarioDao.listarEmpresa();
+
+        List<UsuarioDto> usuarioDtos = new ArrayList<UsuarioDto>();
+
+        for (Usuario usuario : usuarios) {
+            usuarioDtos.add(usuarioMapper.mapEntityToDto(usuario));
+        }
+
+        return usuarioDtos;
+    }
+
 }

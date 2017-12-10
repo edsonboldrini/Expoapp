@@ -7,7 +7,9 @@ package com.expoapp.entity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.*;
 
 /**
@@ -15,32 +17,45 @@ import javax.persistence.*;
  * @author 20151bsi0223
  */
 @Entity
-@Table (name = "empresa")
+@Table(name = "empresa")
 @AttributeOverrides({
-    @AttributeOverride(name="id",column=@Column(name="id")),
-    @AttributeOverride(name = "nome",column = @Column(name="nome")),
-    @AttributeOverride(name = "login",column = @Column(name="login")),
-    @AttributeOverride(name = "email",column = @Column(name="email")),
-    @AttributeOverride(name = "senha",column = @Column(name="senha")),
-    @AttributeOverride(name = "dtCadastro",column = @Column(name="dtCadastro")),
-    @AttributeOverride(name = "logradouro",column = @Column(name="logradouro")),
-    @AttributeOverride(name = "endereco",column = @Column(name="endereco")),
-    @AttributeOverride(name = "cep",column = @Column(name="cep")),
-    @AttributeOverride(name = "cep",column = @Column(name="cep")),
-    @AttributeOverride(name = "bairroid",column = @Column(name="bairroid"))
+    @AttributeOverride(name = "id", column = @Column(name = "id"))
+    ,
+    @AttributeOverride(name = "nome", column = @Column(name = "nome"))
+    ,
+    @AttributeOverride(name = "login", column = @Column(name = "login"))
+    ,
+    @AttributeOverride(name = "email", column = @Column(name = "email"))
+    ,
+    @AttributeOverride(name = "senha", column = @Column(name = "senha"))
+    ,
+    @AttributeOverride(name = "dtCadastro", column = @Column(name = "dtCadastro"))
+    ,
+    @AttributeOverride(name = "logradouro", column = @Column(name = "logradouro"))
+    ,
+    @AttributeOverride(name = "endereco", column = @Column(name = "endereco"))
+    ,
+    @AttributeOverride(name = "cep", column = @Column(name = "cep"))
+    ,
+    @AttributeOverride(name = "cep", column = @Column(name = "cep"))
+    ,
+    @AttributeOverride(name = "bairroid", column = @Column(name = "bairroid"))
 })
-public class Empresa extends Usuario{
-    @Column(name = "sobre",nullable = false)
+public class Empresa extends Usuario {
+
+    @Column(name = "sobre", nullable = false)
     private String sobre;
-    @Column(name = "cnpj",nullable = false)
+    @Column(name = "cnpj", nullable = false)
     private String cnpj;
-    @Column(name = "dataAbertura",nullable = false)
+    @Column(name = "dataAbertura", nullable = false)
     private LocalDate dtAbertura;
-    @OneToMany(mappedBy = "empresa",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
     private List<Exposicao> exposicoes;
-    @OneToMany(mappedBy="empresa",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
     private List<Notificacao> notificacoes;
-    
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "empresasSeguindo")
+    private Set<Cliente> seguidores = new HashSet<Cliente>();
+
     public String getSobre() {
         return sobre;
     }
@@ -81,5 +96,12 @@ public class Empresa extends Usuario{
         this.notificacoes = notificacoes;
     }
 
-            
+    public Set<Cliente> getSeguidores() {
+        return seguidores;
+    }
+
+    public void setSeguidores(Set<Cliente> seguidores) {
+        this.seguidores = seguidores;
+    }
+
 }

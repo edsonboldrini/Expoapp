@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Git/expoApp/src/java/com/expoapp/service/impl/PecaServiceImpl.java</file>
             <file>file:/E:/Git/expoApp/test/com/expoo/entity/Testes.java</file>
-            <file>file:/E:/Git/expoApp/src/java/com/expoapp/dao/impl/PecaDaoImpl.java</file>
-            <file>file:/E:/Git/expoApp/src/java/com/expoapp/service/impl/ExposicaoServiceImpl.java</file>
-            <file>file:/E:/Git/expoApp/src/java/com/expoapp/service/PecaService.java</file>
-            <file>file:/E:/Git/expoApp/src/java/com/expoapp/service/ExposicaoService.java</file>
+            <file>file:/E:/Git/expoApp/src/java/com/expoapp/dto/ClienteDto.java</file>
+            <file>file:/E:/Git/expoApp/src/java/com/expoapp/service/UsuarioService.java</file>
+            <file>file:/E:/Git/expoApp/src/java/com/expoapp/dao/UsuarioDao.java</file>
+            <file>file:/E:/Git/expoApp/src/java/com/expoapp/dao/impl/UsuarioDaoImpl.java</file>
+            <file>file:/E:/Git/expoApp/src/java/com/expoapp/service/impl/UsuarioServiceImpl.java</file>
+            <file>file:/E:/Git/expoApp/src/java/com/expoapp/dto/EmpresaDto.java</file>
         </group>
     </open-files>
 </project-private>

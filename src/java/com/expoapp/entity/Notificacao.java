@@ -25,23 +25,17 @@ public class Notificacao implements Serializable {
     private LocalDateTime data_cadastro;
     private String descricao;
     private Integer tipo;
-    @ManyToOne
-    @JoinColumn(name="exposicaoid", nullable=false)
+    
+    @ManyToOne(optional = true)
+    @JoinColumn(name="exposicaoid", nullable=true)
     private Exposicao exposicao;
+    
     @ManyToOne
     @JoinColumn(name="empresaid", nullable=false)
     private Empresa empresa;
     
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "notificacoes")
     private Set<Cliente> clientes = new HashSet<Cliente>();
-
-    public Exposicao getExposicao() {
-        return exposicao;
-    }
-
-    public void setExposicao(Exposicao exposicao) {
-        this.exposicao = exposicao;
-    }
 
     public Empresa getEmpresa() {
         return empresa;
@@ -83,5 +77,20 @@ public class Notificacao implements Serializable {
     public void setTipo(Integer tipo) {
         this.tipo = tipo;
     }    
+
+    public Set<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(Set<Cliente> clientes) {
+        this.clientes = clientes;
+    }
     
+    public Exposicao getExposicao() {
+        return exposicao;
+    }
+
+    public void setExposicao(Exposicao exposicao) {
+        this.exposicao = exposicao;
+    }
 }

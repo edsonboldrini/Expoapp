@@ -43,6 +43,12 @@ public class Cliente extends Usuario{
 				joinColumns = @JoinColumn(name = "cliente_id", referencedColumnName="ID"), 
 				inverseJoinColumns = @JoinColumn(name = "notificacao_id", referencedColumnName="ID"))
     private Set<Notificacao> notificacoes = new HashSet<Notificacao>();
+    
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+	@JoinTable(name = "cliente_empresa", 
+				joinColumns = @JoinColumn(name = "cliente_id", referencedColumnName="ID"), 
+				inverseJoinColumns = @JoinColumn(name = "empresa_id", referencedColumnName="ID"))
+    private Set<Empresa> empresasSeguindo = new HashSet<Empresa>();
 
     public LocalDate getDataNascimento() {
         return dataNascimento;
@@ -75,5 +81,15 @@ public class Cliente extends Usuario{
     public void setNotificacoes(Set<Notificacao> notificacoes) {
         this.notificacoes = notificacoes;
     }
+
+    public Set<Empresa> getEmpresasSeguindo() {
+        return empresasSeguindo;
+    }
+
+    public void setEmpresasSeguindo(Set<Empresa> empresasSeguindo) {
+        this.empresasSeguindo = empresasSeguindo;
+    }
+    
+    
     
 }

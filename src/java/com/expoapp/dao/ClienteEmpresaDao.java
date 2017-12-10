@@ -5,10 +5,14 @@
  */
 package com.expoapp.dao;
 
+import com.expoapp.entity.Cliente;
+import java.util.List;
+
 /**
  *
  * @author yagoz
  */
 public interface ClienteEmpresaDao {
-    
+    public List<Cliente> getAll();
+    public List<Cliente> isPresent(Integer clientId, Integer accountId);
 }

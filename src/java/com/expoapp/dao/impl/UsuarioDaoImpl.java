@@ -59,4 +59,14 @@ public class UsuarioDaoImpl extends GenericDAOImpl<Usuario> implements UsuarioDa
         return (Usuario)cr.uniqueResult();
     }
 
+    @Override
+    public List<Usuario> listarClientes() {
+        return sessionFactory.getCurrentSession().createQuery("select usuario from Cliente usuario order by usuario.id desc").list();
+    }
+
+    @Override
+    public List<Usuario> listarEmpresa() {
+        return sessionFactory.getCurrentSession().createQuery("select usuario from Empresa usuario order by usuario.id desc").list();
+    }
+
 }

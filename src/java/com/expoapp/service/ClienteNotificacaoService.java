@@ -6,13 +6,14 @@
 package com.expoapp.service;
 
 import com.expoapp.dto.ClienteNotificacaoDto;
+import com.expoapp.util.Observer;
 import java.util.List;
 
 /**
  *
  * @author yagoz
  */
-public interface ClienteNotificacaoService {
+public interface ClienteNotificacaoService extends Observer {
 
     public boolean isPresent(ClienteNotificacaoDto clienteNotificacaoDto);
 

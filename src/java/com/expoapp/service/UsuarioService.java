@@ -23,4 +23,6 @@ public interface UsuarioService {
     public UsuarioDto buscaPorCpf(String cpf);
     public UsuarioDto buscaPorCnpj(String cnpj);
     public UsuarioDto buscaLoginSenha(String login,String senha);
+    public List<UsuarioDto> listarClientes();
+    public List<UsuarioDto> listarEmpresas();
 }

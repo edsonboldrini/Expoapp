@@ -185,11 +185,14 @@ public class Testes {
         ((EmpresaDto)empresa).setDtAbertura(LocalDate.of(1994, Month.MARCH, 22));
         ((EmpresaDto)empresa).setSobre("Nada");
         
-        usuarioService.create(empresa);
-        UsuarioDto teste = usuarioService.buscaLoginSenha("login","senha");
         
-        Assert.assertEquals("yago", teste.getNome());
-        //Assert.assertEquals(2L, usuarioDao.listar().size());
+        usuarioService.create(empresa);
+        List<UsuarioDto> clientes = usuarioService.listarClientes();
+        List<UsuarioDto> empresas = usuarioService.listarEmpresas();
+        
+
+        Assert.assertEquals("14166907786", ((ClienteDto)clientes.get(0)).getCpf());
+        Assert.assertEquals("1111111111111", ((EmpresaDto)empresas.get(0)).getCnpj());
     }
     
     @Test

@@ -13,11 +13,15 @@ import com.expoapp.dto.ClienteNotificacaoDto;
 import com.expoapp.dto.NotificacaoDto;
 import com.expoapp.dto.UsuarioDto;
 import com.expoapp.entity.Cliente;
+import com.expoapp.entity.Exposicao;
 import com.expoapp.entity.Notificacao;
 import com.expoapp.entity.Usuario;
 import com.expoapp.mapper.NotificacaoMapper;
 import com.expoapp.mapper.UsuarioMapper;
 import com.expoapp.service.ClienteNotificacaoService;
+import com.expoapp.util.Observavel;
+import com.expoapp.util.Observer;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -112,6 +116,23 @@ public class ClienteNotificacaoServiceImpl implements ClienteNotificacaoService 
         cliente.getNotificacoes().remove(notificacao);
 
         clienteDao.alterar(cliente);
+    }
+    
+    @Override
+    public void update(Observavel observavel) {
+        Exposicao exposicao = (Exposicao)observavel;
+        Notificacao notificacao = new Notificacao();
+        notificacao.setData_cadastro(LocalDateTime.now());
+        notificacao.setTipo(1);
+        notificacao.setExposicao(exposicao);
+        notificacao.setEmpresa(exposicao.getEmpresa());
+        
+        if(null != exposicao.getId())
+            notificacao.setDescricao("Exposição " + exposicao.getDescricao() + "foi alterada.");
+        else
+            notificacao.setDescricao("Exposição " + exposicao.getDescricao() + "criada, faça uma visita.");
+        
+        notificacaoDao.inserir(notificacao);
     }
 
 }

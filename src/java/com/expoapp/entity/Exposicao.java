@@ -5,12 +5,11 @@
  */
 package com.expoapp.entity;
 
+import com.expoapp.util.Observavel;
+import java.io.Serializable;
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,7 +19,7 @@ import java.util.List;
 @Entity
 @Table (name = "EXPOSICAO")
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-public class Exposicao {
+public class Exposicao extends Observavel implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -34,12 +33,15 @@ public class Exposicao {
     @ManyToOne
     @JoinColumn(name = "empresaid", nullable = false)
     private Empresa empresa;
+    
     @ManyToOne
     @JoinColumn(name = "bairroid", nullable = false)
     private Bairro bairro;
+    
     @OneToMany(mappedBy = "exposicao",cascade = CascadeType.ALL)
     private List<Peca> pecas;
-    @OneToMany(mappedBy="empresa",cascade=CascadeType.ALL)
+    
+    @OneToMany(mappedBy="exposicao",cascade=CascadeType.ALL)
     private List<Notificacao> notificacoes;
 
     public Integer getId() {
@@ -56,6 +58,7 @@ public class Exposicao {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+        notificarObservadores();
     }
 
     public LocalDate getDtInicio() {

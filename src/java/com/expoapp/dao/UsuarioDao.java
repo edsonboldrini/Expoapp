@@ -7,6 +7,7 @@ package com.expoapp.dao;
 
 import com.expoapp.dao.GenericDAO;
 import com.expoapp.entity.Usuario;
+import java.util.List;
 
 /**
  *
@@ -16,4 +17,6 @@ public interface UsuarioDao extends GenericDAO<Usuario>{
     public Usuario getByCpf(String cpf);
     public Usuario getByCnpj(String cnpj);
     public Usuario login(String login,String senha);
+    public List<Usuario> listarClientes();
+    public List<Usuario> listarEmpresa();
 }
