@@ -8,8 +8,11 @@ package com.expoo.entity;
 import com.expoapp.dao.BairroDao;
 import com.expoapp.dao.UsuarioDao;
 import com.expoapp.dto.ClienteDto;
+import com.expoapp.dto.ClienteNotificacaoDto;
 import com.expoapp.dto.EmpresaDto;
 import com.expoapp.dto.ExposicaoDto;
+import com.expoapp.dto.NotificacaoDto;
+import com.expoapp.dto.PecaDto;
 import com.expoapp.dto.UsuarioDto;
 import com.expoapp.entity.Bairro;
 import com.expoapp.entity.Cidade;
@@ -17,8 +20,11 @@ import com.expoapp.entity.Cliente;
 import com.expoapp.entity.Empresa;
 import com.expoapp.entity.Estado;
 import com.expoapp.entity.Usuario;
+import com.expoapp.service.ClienteNotificacaoService;
 import com.expoapp.service.ExposicaoService;
+import com.expoapp.service.PecaService;
 import com.expoapp.service.UsuarioService;
+import com.expoapp.service.impl.ClienteNotificacaoServiceImpl;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -57,6 +63,13 @@ public class Testes {
     
     @Autowired
     private UsuarioService usuarioService;
+    
+    @Autowired
+    private ClienteNotificacaoService clNtService;
+    
+    @Autowired
+    private PecaService pecaService;
+    
     @Test
     public void Testes() {
         Estado estado = new Estado();
@@ -236,6 +249,28 @@ public class Testes {
         exposicaoService.create(exposicao);
         Empresa emp2 = (Empresa)usuarioDao.listar().get(0);
         Assert.assertEquals(1L, emp2.getExposicoes().size());
+    }
+    
+    @Test
+    public void Test4(){
+        List<ClienteNotificacaoDto> ClNts = new ArrayList<ClienteNotificacaoDto>();
+        ClNts = clNtService.findAll();
+        Assert.assertEquals(0L, ClNts.size());
+    }
+    
+    @Test
+    public void Test5(){
+        List<ExposicaoDto> exposicoes = new ArrayList<ExposicaoDto>();
+        exposicoes = exposicaoService.buscarPorEmpresa(1);
+        Assert.assertEquals(0L, exposicoes.size());
+        
+    }
+    
+    @Test
+    public void Test6(){
+        List<PecaDto> pecaDtos = new ArrayList<PecaDto>();
+        pecaDtos = pecaService.buscarPorExposicao(1);
+        Assert.assertEquals(0L, pecaDtos.size());
     }
     
 }

@@ -18,4 +18,5 @@ public interface ExposicaoService {
     public ExposicaoDto findById(Integer id);
     public void remove(Integer exposicaoId);
     public void edit(ExposicaoDto exposicaoDto);
+    public List<ExposicaoDto> buscarPorEmpresa(Integer empresaId);
 }

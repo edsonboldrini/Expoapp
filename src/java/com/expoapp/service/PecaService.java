@@ -18,4 +18,5 @@ public interface PecaService {
     public PecaDto findById(Integer id);
     public void remove(Integer pecaId);
     public void edit(PecaDto pecaDto);
+    public List<PecaDto> buscarPorExposicao(Integer exposicaoId);
 }

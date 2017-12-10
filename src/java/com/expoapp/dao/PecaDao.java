@@ -6,11 +6,12 @@
 package com.expoapp.dao;
 
 import com.expoapp.entity.Peca;
+import java.util.List;
 
 /**
  *
  * @author yagoz
  */
 public interface PecaDao extends GenericDAO<Peca>{
-    
+    public List<Peca> buscaPorExposicao(Integer exposicaoId);
 }

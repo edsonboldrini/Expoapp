@@ -8,6 +8,7 @@ package com.expoapp.dao.impl;
 import com.expoapp.dao.PecaDao;
 import com.expoapp.entity.Peca;
 import java.util.List;
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,13 +21,16 @@ import org.springframework.transaction.annotation.Transactional;
 public class PecaDaoImpl extends GenericDAOImpl<Peca> implements PecaDao{
 
     @Override
-    public List<Peca> listar(Class clazz) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Peca> listar() {
+        return sessionFactory.getCurrentSession().createQuery("select peca from Peca peca order by peca.id").list();
     }
 
     @Override
-    public List<Peca> listar() {
-        return sessionFactory.getCurrentSession().createQuery("select peca from Peca peca order by peca.id").list();
+    public List<Peca> buscaPorExposicao(Integer exposicaoId) {
+        String qry = "select pc from Peca pc join pc.exposicao exp where exp.id=:exposicaoid order by pc.id desc";
+        Query q= sessionFactory.getCurrentSession().createQuery(qry);
+        q.setParameter("exposicaoid", exposicaoId);
+        return q.list();
     }
     
 }

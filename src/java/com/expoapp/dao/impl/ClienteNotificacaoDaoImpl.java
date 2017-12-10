@@ -29,12 +29,12 @@ public class ClienteNotificacaoDaoImpl implements ClienteNotificacaoDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<Notificacao> notificacoes(Integer clienteid) {
-        return sessionFactory.getCurrentSession().createQuery("select distinct n from Notificacao n join n.cliente c where c.id = " + clienteid).list();
+        return sessionFactory.getCurrentSession().createQuery("select distinct n from Notificacao n join n.clientes c where c.id = " + clienteid).list();
     }
 
     @Override
     public List<Cliente> isPresent(Integer clienteId, Integer notificacaoId) {
-        String hql = "select distinct n from Notificacao n join n.cliente c where n.id=:clienteid and c.id=:notificacaoid";
+        String hql = "select distinct n from Notificacao n join n.clientes c where n.id=:clienteid and c.id=:notificacaoid";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
         query.setParameter("clienteid", clienteId);
         query.setParameter("notificacaoid", notificacaoId);
@@ -43,7 +43,7 @@ public class ClienteNotificacaoDaoImpl implements ClienteNotificacaoDao {
 
     @Override
     public List<Cliente> getAll() {
-        return sessionFactory.getCurrentSession().createQuery("select distinct n from Notificacao n join n.cliente c").list();
+        return sessionFactory.getCurrentSession().createQuery("select distinct n from Notificacao n join n.clientes c").list();
     }
 
 }

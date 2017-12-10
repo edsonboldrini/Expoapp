@@ -8,6 +8,7 @@ package com.expoapp.dao.impl;
 import com.expoapp.dao.ExposicaoDao;
 import com.expoapp.entity.Exposicao;
 import java.util.List;
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,6 +28,14 @@ public class ExposicaoDaoImpl extends GenericDAOImpl<Exposicao> implements Expos
     @Override
     public List<Exposicao> listar() {
         return sessionFactory.getCurrentSession().createQuery("select exposicao from Exposicao exposicao order by exposicao.id desc").list();
+    }
+
+    @Override
+    public List<Exposicao> buscarExposicoesEmpresa(Integer empresaId) {
+        String hql = "select e from Exposicao e join e.empresa emp where emp.id=:empresaid order by e.id desc";
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter("empresaid", empresaId);
+        return query.list();
     }
     
 }

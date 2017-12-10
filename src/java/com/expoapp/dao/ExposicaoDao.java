@@ -6,11 +6,13 @@
 package com.expoapp.dao;
 
 import com.expoapp.entity.Exposicao;
+import java.util.List;
 
 /**
  *
  * @author yagoz
  */
 public interface ExposicaoDao extends GenericDAO<Exposicao>{
+    public List<Exposicao> buscarExposicoesEmpresa(Integer empresaId);
     
 }

@@ -93,5 +93,17 @@ public class ExposicaoServiceImpl implements ExposicaoService{
     public void edit(ExposicaoDto exposicaoDto) {
         exposicaoDao.alterar(exposicaoMapper.mapDtoToEntity(exposicaoDto));
     }
+
+    @Override
+    public List<ExposicaoDto> buscarPorEmpresa(Integer empresaId) {
+        List<Exposicao> exposicoes = exposicaoDao.buscarExposicoesEmpresa(empresaId);
+        List<ExposicaoDto> exposicoesDtos = new ArrayList<ExposicaoDto>();
+        
+        for (Exposicao exposicao : exposicoes) {
+            exposicoesDtos.add(exposicaoMapper.mapEntityToDto(exposicao));
+        }
+        
+        return exposicoesDtos;
+    }
     
 }

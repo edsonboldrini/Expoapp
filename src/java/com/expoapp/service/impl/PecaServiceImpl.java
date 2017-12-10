@@ -15,11 +15,15 @@ import com.expoapp.service.PecaService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author yagoz
  */
+@Service
+@Transactional
 public class PecaServiceImpl implements PecaService{
 
     @Autowired
@@ -61,17 +65,34 @@ public class PecaServiceImpl implements PecaService{
 
     @Override
     public PecaDto findById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Peca peca= pecaDao.getById(Peca.class, id);
+        PecaDto pecaDto = new PecaDto();
+        pecaDto = pecaMapper.mapEntityToDto(peca);
+        if(null != peca.getExposicao()){
+            Exposicao expo = exposicaoDao.getById(Exposicao.class, peca.getExposicao().getId());
+            pecaDto.setExposicao(expo.getId());
+        }
+        return pecaDto;
     }
 
     @Override
     public void remove(Integer pecaId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Peca peca = pecaDao.getById(Peca.class, pecaId);
+        pecaDao.delete(peca);
     }
 
     @Override
     public void edit(PecaDto pecaDto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pecaDao.alterar(pecaMapper.mapDtoToEntity(pecaDto));
+    }
+
+    @Override
+    public List<PecaDto> buscarPorExposicao(Integer exposicaoId) {
+        List<Peca> pecas = pecaDao.buscaPorExposicao(exposicaoId);
+        List<PecaDto> pecaDtos = new ArrayList<PecaDto>();
+        for (Peca p: pecas)
+            pecaDtos.add(pecaMapper.mapEntityToDto(p));
+        return pecaDtos;
     }
     
 }
